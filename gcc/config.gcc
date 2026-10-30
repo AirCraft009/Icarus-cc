@@ -889,6 +889,14 @@ case ${target} in
   rust_target_objs="${rust_target_objs} dragonfly-rust.o"
   target_has_targetrustm=yes
   ;;
+
+*-*-icarus*)
+extra_options="$extra_options gnu-user.opt"
+gas=yes
+gnu_ld=yes
+default_use_cxa_atexit=yes
+use_gcc_stdint=provide
+;;
 *-*-freebsd*)
   # This is the generic ELF configuration of FreeBSD.  Later
   # machine-specific sections may refine and add to this
@@ -1238,6 +1246,9 @@ case ${target} in
 esac
 
 case ${target} in
+x86_64-*-icarus*)
+    tm_file="${tm_file} i386/unix.h i386/att.h elfos.h glibc-stdint.h i386/i386elf.h i386/x86-64.h icarus.h gnu-user.h"
+    ;;
 aarch64*-*-elf | aarch64*-*-fuchsia* | aarch64*-*-rtems*)
 	tm_file="${tm_file} elfos.h newlib-stdint.h"
 	tm_file="${tm_file} aarch64/aarch64-elf.h aarch64/aarch64-errata.h aarch64/aarch64-elf-raw.h"
@@ -2636,7 +2647,7 @@ loongarch*-*-elf*)
 	gcc_cv_initfini_array=yes
 	;;
 
-mips*-*-netbsd*)			# NetBSD/mips, either endian.
+mips1netbsd*)			# NetBSD/mips, either endian.
 	target_cpu_default="MASK_ABICALLS"
 	tm_file="elfos.h ${tm_file} mips/elf.h ${nbsd_tm_file} mips/netbsd.h"
 	extra_options="${extra_options} netbsd.opt netbsd-elf.opt"

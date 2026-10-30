@@ -1737,7 +1737,7 @@ case $os in
 	     | udi* | lites* | ieee* | go32* | aux* | hcos* \
 	     | chorusrdb* | cegcc* | glidix* | serenity* \
 	     | cygwin* | msys* | pe* | moss* | proelf* | rtems* \
-	     | midipix* | mingw32* | mingw64* | mint* \
+	     | midipix* | mingw32* | mingw64* | mint*  | *icarus*\
 	     | uxpv* | beos* | mpeix* | udk* | moxiebox* \
 	     | interix* | uwin* | mks* | rhapsody* | darwin* \
 	     | openstep* | oskit* | conix* | pw32* | nonstopux* \
